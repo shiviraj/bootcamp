@@ -4,15 +4,15 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class UnitTest {
+class LengthUnitTest {
 
     @Test
     void shouldConvertFeetToBaseUnit() {
-        assertEquals(60, Unit.FEET.convertToBase(2));
+        assertEquals(60, LengthUnit.FEET.convertToBase(2));
     }
 
     @Test
     void shouldConvertMmToBaseUnit() {
-        assertEquals(2, Unit.MM.convertToBase(20));
+        assertEquals(2, LengthUnit.MM.convertToBase(20));
     }
 }

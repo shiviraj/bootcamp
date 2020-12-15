@@ -1,6 +1,6 @@
 package measurement;
 
-public enum Unit {
+public enum LengthUnit {
     CM(1),
     MM(0.1),
     INCH(2.5),
@@ -9,7 +9,7 @@ public enum Unit {
     private final double conversionFactor;
     // equivalentToCM
 
-    Unit(double conversionFactor) {
+    LengthUnit(double conversionFactor) {
         this.conversionFactor = conversionFactor;
     }
 
