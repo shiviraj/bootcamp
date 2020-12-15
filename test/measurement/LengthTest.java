@@ -1,4 +1,4 @@
-package mesurement;
+package measurement;
 
 import org.junit.jupiter.api.Test;
 
@@ -8,6 +8,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class LengthTest {
 
     @Test
+        //should assert true for given equal lengths in feet and in inches
+        // should validate if two lengths are equals in units
+        // should validate true for two equal lengths in feet and inches
     void shouldGiveTrueForGivenEqualFeetAndInch() {
         Length oneFeet = new Length(1, Unit.FEET);
         Length twelveInch = new Length(12, Unit.INCH);

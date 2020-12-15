@@ -1,4 +1,4 @@
-package mesurement;
+package measurement;
 
 public class Length {
     private final double value;

@@ -1,4 +1,4 @@
-package mesurement;
+package measurement;
 
 public enum Unit {
     CM(1),
@@ -7,6 +7,7 @@ public enum Unit {
     FEET(30);
 
     private final double conversionFactor;
+    // equivalentToCM
 
     Unit(double conversionFactor) {
         this.conversionFactor = conversionFactor;
