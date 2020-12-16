@@ -1,6 +1,6 @@
 package measurement;
 
-public enum LengthUnit {
+public enum LengthUnit implements Unit {
     CM(1),
     MM(0.1),
     INCH(2.5),
@@ -13,6 +13,7 @@ public enum LengthUnit {
         this.conversionFactor = conversionFactor;
     }
 
+    @Override
     public double convertToBase(double value) {
         return value * this.conversionFactor;
     }
@@ -21,7 +22,9 @@ public enum LengthUnit {
         return baseValue / this.conversionFactor;
     }
 
-    public double convertTo(double value, LengthUnit otherUnit) {
-        return this.convertToBase(value) / otherUnit.conversionFactor;
+    @Override
+    public double convertTo(double value, Unit otherUnit) {
+        LengthUnit lengthUnit = (LengthUnit) otherUnit;
+        return this.convertToBase(value) / lengthUnit.conversionFactor;
     }
 }
