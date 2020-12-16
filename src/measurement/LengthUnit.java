@@ -20,4 +20,8 @@ public enum LengthUnit {
     public double convertToLocal(double baseValue) {
         return baseValue / this.conversionFactor;
     }
+
+    public double convertTo(double value, LengthUnit otherUnit) {
+        return this.convertToBase(value) / otherUnit.conversionFactor;
+    }
 }

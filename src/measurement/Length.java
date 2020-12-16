@@ -3,6 +3,7 @@ package measurement;
 import java.util.Objects;
 
 public class Length {
+    private static final LengthUnit STANDARD_UNIT = LengthUnit.INCH;
     private final double value;
     private final LengthUnit lengthUnit;
 
@@ -12,17 +13,20 @@ public class Length {
     }
 
     public boolean equalTo(Length otherLength) {
-        double baseValue = this.lengthUnit.convertToBase(this.value);
-        double otherBaseValue = otherLength.lengthUnit.convertToBase(otherLength.value);
+        double baseValue = convertToStandard();
+        double otherBaseValue = otherLength.convertToStandard();
         return baseValue == otherBaseValue;
     }
 
     public Length add(Length other) {
-        double baseValue = this.lengthUnit.convertToBase(this.value);
-        double otherBaseValue = other.lengthUnit.convertToBase(other.value);
-        double value = LengthUnit.INCH.convertToLocal(baseValue + otherBaseValue);
+        double thisValue = convertToStandard();
+        double otherValue = other.convertToStandard();
 
-        return new Length(value, LengthUnit.INCH);
+        return new Length(thisValue + otherValue, STANDARD_UNIT);
+    }
+
+    private double convertToStandard() {
+        return this.lengthUnit.convertTo(this.value, STANDARD_UNIT);
     }
 
     @Override

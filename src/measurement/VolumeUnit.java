@@ -10,7 +10,11 @@ public enum VolumeUnit {
         this.equivalentLiter = equivalentLiter;
     }
 
-    public double convertToBase(double value) {
+    public double convertTo(double value, VolumeUnit otherUnit) {
+        return this.convertToBase(value) / otherUnit.equivalentLiter;
+    }
+
+    private double convertToBase(double value) {
         return value * this.equivalentLiter;
     }
 }
