@@ -2,15 +2,15 @@ package measurement;
 
 import org.junit.jupiter.api.Test;
 
+import static junit.framework.TestCase.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class VolumeTest {
     @Test
     void shouldValidateTrueForEqualVolumeInLiterAndGallon() {
-        Volume liter = new Volume(3.78, VolumeUnit.LITER);
+        Volume threePointSevenEightLiter = new Volume(3.78, VolumeUnit.LITER);
         Volume oneGallon = new Volume(1, VolumeUnit.GALLON);
-        assertTrue(liter.equalTo(oneGallon));
+        assertTrue(threePointSevenEightLiter.equalTo(oneGallon));
     }
 
     @Test

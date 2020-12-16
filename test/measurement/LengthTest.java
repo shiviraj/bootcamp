@@ -58,7 +58,7 @@ class LengthTest {
     }
 
     @Test
-    void shouldAddTwoLengthsInSameUnit() throws UnitMissMatchException {
+    void shouldAddTwoLengthsInSameUnit() {
         Length twoInch = new Length(2, LengthUnit.INCH);
         Length threeInch = new Length(3, LengthUnit.INCH);
 
@@ -66,10 +66,11 @@ class LengthTest {
     }
 
     @Test
-    void shouldThrowUnitMissMatchExceptionForAddingLengthsInDifferentUnits() {
+    void shouldAddTwoLengthsInDifferentUnits() {
         Length twoInch = new Length(2, LengthUnit.INCH);
-        Length threeFeet = new Length(3, LengthUnit.FEET);
+        Length twoPointFiveCm = new Length(2.5, LengthUnit.CM);
 
-        assertThrows(UnitMissMatchException.class, () -> twoInch.add(threeFeet));
+        assertEquals(new Length(3, LengthUnit.INCH), twoInch.add(twoPointFiveCm));
+
     }
 }

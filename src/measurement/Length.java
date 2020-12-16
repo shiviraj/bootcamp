@@ -17,12 +17,12 @@ public class Length {
         return baseValue == otherBaseValue;
     }
 
-    public Length add(Length other) throws UnitMissMatchException {
-        if (this.lengthUnit != other.lengthUnit) {
-            throw new UnitMissMatchException();
-        }
-        double value = this.value + other.value;
-        return new Length(value, this.lengthUnit);
+    public Length add(Length other) {
+        double baseValue = this.lengthUnit.convertToBase(this.value);
+        double otherBaseValue = other.lengthUnit.convertToBase(other.value);
+        double value = LengthUnit.INCH.convertToLocal(baseValue + otherBaseValue);
+
+        return new Length(value, LengthUnit.INCH);
     }
 
     @Override
@@ -31,11 +31,19 @@ public class Length {
         if (o == null || getClass() != o.getClass()) return false;
         Length length = (Length) o;
         return Double.compare(length.value, value) == 0 &&
-                lengthUnit == length.lengthUnit;
+            lengthUnit == length.lengthUnit;
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(value, lengthUnit);
+    }
+
+    @Override
+    public String toString() {
+        return "Length{" +
+            "value=" + value +
+            ", lengthUnit=" + lengthUnit +
+            '}';
     }
 }
