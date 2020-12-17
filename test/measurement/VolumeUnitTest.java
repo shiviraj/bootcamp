@@ -8,6 +8,11 @@ class VolumeUnitTest {
 
     @Test
     void shouldConvertGivenValueToGivenUnit() {
-        assertEquals(3.78, VolumeUnit.GALLON.convertTo(1, VolumeUnit.LITER));
+        assertEquals(3.78, VolumeUnit.GALLON.convertToBase(1));
+    }
+
+    @Test
+    void ShouldConvertBaseToLocal() {
+        assertEquals(1, VolumeUnit.GALLON.convertToLocal(3.78));
     }
 }

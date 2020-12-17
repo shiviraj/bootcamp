@@ -6,25 +6,19 @@ public enum LengthUnit implements Unit {
     INCH(2.5),
     FEET(30);
 
-    private final double conversionFactor;
-    // equivalentToCM
+    private final double equivalentCM;
 
-    LengthUnit(double conversionFactor) {
-        this.conversionFactor = conversionFactor;
+    LengthUnit(double equivalentCM) {
+        this.equivalentCM = equivalentCM;
     }
 
     @Override
     public double convertToBase(double value) {
-        return value * this.conversionFactor;
-    }
-
-    public double convertToLocal(double baseValue) {
-        return baseValue / this.conversionFactor;
+        return value * this.equivalentCM;
     }
 
     @Override
-    public double convertTo(double value, Unit otherUnit) {
-        LengthUnit lengthUnit = (LengthUnit) otherUnit;
-        return this.convertToBase(value) / lengthUnit.conversionFactor;
+    public double convertToLocal(double value) {
+        return value / this.equivalentCM;
     }
 }
