@@ -18,7 +18,7 @@ public enum LengthUnit implements Unit {
     }
 
     @Override
-    public double convertToLocal(double value) {
+    public double convertFromBase(double value) {
         return value / this.equivalentCM;
     }
 }

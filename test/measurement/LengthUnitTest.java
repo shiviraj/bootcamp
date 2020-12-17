@@ -18,6 +18,6 @@ class LengthUnitTest {
 
     @Test
     void shouldConvertBaseToLocal() {
-        assertEquals(10, LengthUnit.MM.convertToLocal(1));
+        assertEquals(10, LengthUnit.MM.convertFromBase(1));
     }
 }

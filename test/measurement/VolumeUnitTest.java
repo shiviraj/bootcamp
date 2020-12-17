@@ -13,6 +13,6 @@ class VolumeUnitTest {
 
     @Test
     void ShouldConvertBaseToLocal() {
-        assertEquals(1, VolumeUnit.GALLON.convertToLocal(3.78));
+        assertEquals(1, VolumeUnit.GALLON.convertFromBase(3.78));
     }
 }

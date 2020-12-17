@@ -2,39 +2,37 @@ package measurement;
 
 import java.util.Objects;
 
-public class Quantity {
+public class Quantity<U extends Unit> {
     private final double value;
-    private final Unit unit;
+    private final U unit;
 
-    public Quantity(double value, Unit unit) {
+    public Quantity(double value, U unit) {
         this.value = value;
         this.unit = unit;
     }
 
-    public boolean equalTo(Quantity other) {
-        if (isSameEntity(other)) return false;
+    public boolean equalTo(Quantity<U> other) {
         return other.convertToBase() == this.convertToBase();
     }
 
-    private boolean isSameEntity(Quantity other) {
-        return this.unit.getClass() != other.unit.getClass();
+    public Quantity<U> add(Quantity<U> other, U expectedUnit) {
+        double sum = other.convertToBase() + this.convertToBase();
+        return new Quantity<>(expectedUnit.convertFromBase(sum), expectedUnit);
+    }
+
+    public Quantity<U> add(Quantity<U> other) {
+        return this.add(other, this.unit);
     }
 
     private double convertToBase() {
         return this.unit.convertToBase(this.value);
     }
 
-    public Quantity add(Quantity other, Unit expectedUnit) throws UnitCategoryMissMatchException {
-        if (isSameEntity(other)) throw new UnitCategoryMissMatchException();
-        double sum = (other.convertToBase() + this.convertToBase());
-        return new Quantity(expectedUnit.convertToLocal(sum), expectedUnit);
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Quantity quantity = (Quantity) o;
+        Quantity<?> quantity = (Quantity<?>) o;
         return Double.compare(quantity.value, value) <= 0.01 &&
                 Objects.equals(unit, quantity.unit);
     }
