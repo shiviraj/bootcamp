@@ -29,7 +29,7 @@ class LengthTest {
         Length fourInch = new Length(4, LengthUnit.INCH);
 
         Length expected = new Length(6, LengthUnit.INCH);
-        assertEquals(expected, fiveCm.add(fourInch, LengthUnit.INCH));
+        assertEquals(expected, fiveCm.add(fourInch));
     }
 
 }

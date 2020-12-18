@@ -29,7 +29,7 @@ class VolumeTest {
         Volume threePointSevenEightLiter = new Volume(3.78, VolumeUnit.LITER);
 
         Volume expected = new Volume(7.56, VolumeUnit.LITER);
-        assertEquals(expected, oneGallon.add(threePointSevenEightLiter, VolumeUnit.LITER));
+        assertEquals(expected, oneGallon.add(threePointSevenEightLiter));
     }
 
 }
