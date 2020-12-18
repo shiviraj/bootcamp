@@ -15,16 +15,7 @@ public class Quantity<U extends Unit> {
         return other.convertToBase() == this.convertToBase();
     }
 
-    public Quantity<U> add(Quantity<U> other, U expectedUnit) {
-        double sum = other.convertToBase() + this.convertToBase();
-        return new Quantity<>(expectedUnit.convertFromBase(sum), expectedUnit);
-    }
-
-    public Quantity<U> add(Quantity<U> other) {
-        return this.add(other, this.unit);
-    }
-
-    private double convertToBase() {
+    protected double convertToBase() {
         return this.unit.convertToBase(this.value);
     }
 
@@ -42,11 +33,4 @@ public class Quantity<U extends Unit> {
         return Objects.hash(value, unit);
     }
 
-    @Override
-    public String toString() {
-        return "Quantity{" +
-            "value=" + value +
-            ", unit=" + unit +
-            '}';
-    }
 }
