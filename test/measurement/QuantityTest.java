@@ -30,11 +30,27 @@ class QuantityTest {
     }
 
     @Test
-    void shouldValidateNotEqualVolumeUnits() {
+    void shouldValidateNotEqualVolumeUnitValues() {
         Quantity<VolumeUnit> oneGallon = new Quantity<>(1, VolumeUnit.GALLON);
         Quantity<VolumeUnit> threeLiter = new Quantity<>(3, VolumeUnit.LITER);
 
         assertFalse(oneGallon.equalTo(threeLiter));
+    }
+
+    @Test
+    void shouldValidateEqualTemperatureUnitValues() {
+        Quantity<TemperatureUnit> twoOneTwoFahrenheit = new Quantity<>(212, TemperatureUnit.FAHRENHEIT);
+        Quantity<TemperatureUnit> hundredCelsius = new Quantity<>(100, TemperatureUnit.CELSIUS);
+        assertTrue(twoOneTwoFahrenheit.equalTo(hundredCelsius));
+
+    }
+
+    @Test
+    void shouldValidateNotEqualTemperatureUnitValues() {
+        Quantity<TemperatureUnit> twoOneTwoFahrenheit = new Quantity<>(212, TemperatureUnit.FAHRENHEIT);
+        Quantity<TemperatureUnit> twoHundredCelsius = new Quantity<>(200, TemperatureUnit.CELSIUS);
+        assertFalse(twoOneTwoFahrenheit.equalTo(twoHundredCelsius));
+
     }
 
     @Test

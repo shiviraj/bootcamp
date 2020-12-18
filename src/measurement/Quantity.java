@@ -34,11 +34,19 @@ public class Quantity<U extends Unit> {
         if (o == null || getClass() != o.getClass()) return false;
         Quantity<?> quantity = (Quantity<?>) o;
         return Double.compare(quantity.value, value) <= 0.01 &&
-                Objects.equals(unit, quantity.unit);
+            Objects.equals(unit, quantity.unit);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(value, unit);
+    }
+
+    @Override
+    public String toString() {
+        return "Quantity{" +
+            "value=" + value +
+            ", unit=" + unit +
+            '}';
     }
 }
