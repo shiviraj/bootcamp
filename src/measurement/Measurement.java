@@ -1,17 +1,19 @@
 package measurement;
 
+import measurement.units.Unit;
+
 import java.util.Objects;
 
-public class Quantity<U extends Unit> {
+public class Measurement<U extends Unit> {
     private final double value;
     private final U unit;
 
-    public Quantity(double value, U unit) {
+    public Measurement(double value, U unit) {
         this.value = value;
         this.unit = unit;
     }
 
-    public boolean equalTo(Quantity<U> other) {
+    public boolean equalTo(Measurement<U> other) {
         return other.convertToBase() == this.convertToBase();
     }
 
@@ -23,9 +25,9 @@ public class Quantity<U extends Unit> {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Quantity<?> quantity = (Quantity<?>) o;
-        return Double.compare(quantity.value, value) <= 0.01 &&
-            Objects.equals(unit, quantity.unit);
+        Measurement<?> measurement = (Measurement<?>) o;
+        return Double.compare(measurement.value, value) <= 0.01 &&
+            Objects.equals(unit, measurement.unit);
     }
 
     @Override

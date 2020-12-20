@@ -1,4 +1,4 @@
-package measurement;
+package measurement.units;
 
 public enum LengthUnit implements Unit {
     CM(1),

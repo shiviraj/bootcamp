@@ -1,5 +1,6 @@
 package measurement;
 
+import measurement.units.TemperatureUnit;
 import org.junit.jupiter.api.Test;
 
 import static junit.framework.TestCase.assertEquals;

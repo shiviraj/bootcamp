@@ -1,4 +1,4 @@
-package measurement;
+package measurement.units;
 
 public enum TemperatureUnit implements Unit {
     FAHRENHEIT(1, 0),
