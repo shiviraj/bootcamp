@@ -38,12 +38,4 @@ public class Rectangle {
         return 2 * (length + breadth);
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Rectangle rectangle = (Rectangle) o;
-        return Double.compare(rectangle.length, length) == 0 &&
-            Double.compare(rectangle.breadth, breadth) == 0;
-    }
 }
