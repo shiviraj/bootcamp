@@ -43,5 +43,17 @@
 
         1 gallon + 1 liter = 4.78 liters
          
+### IV 
 
+1. As a parking lot attendant, I want to park a car.
+
+2. As a parking lot attendant, I want to know when the park is full.
+
+3. As a parking lot attendant, I want to handle more than one parking lot.
+ 
+4. As a parking lot attendant, I want an assistant to monitor the same parking lots as me and update a display.
+
+5. As a parking lot manager, I want to know when the lot is 80% full so that I don't assign that lot to a trainee.
+
+6. As a parking lot attendant, I want to know when the lot is 20% or less occupied so that I can promote the lot.
          
